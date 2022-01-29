@@ -19398,7 +19398,12 @@ __webpack_require__.r(__webpack_exports__);
 
     var value = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(null);
     console.log(dayjs__WEBPACK_IMPORTED_MODULE_2___default()('2022-01-02'));
+    console.log(tasks.value);
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(function () {});
+    return {
+      tasks: tasks,
+      getTasks: getTasks
+    };
   }
 });
 
@@ -19418,7 +19423,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  setup: function setup() {}
+  props: {
+    item: {
+      type: Object,
+      required: true
+    }
+  },
+  setup: function setup(props) {
+    var item = props.item;
+    return {
+      item: item
+    };
+  }
 });
 
 /***/ }),
@@ -19583,19 +19599,18 @@ var _hoisted_1 = {
   "class": "task-list"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_b_form_datepicker = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("b-form-datepicker");
-
   var _component_TaskItem = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("TaskItem");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_b_form_datepicker, {
-    modelValue: _ctx.value,
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return _ctx.value = $event;
-    }),
-    locale: "en"
-  }, null, 8
-  /* PROPS */
-  , ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_TaskItem)]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.tasks, function (item) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_TaskItem, {
+      key: item.id,
+      item: item
+    }, null, 8
+    /* PROPS */
+    , ["item"]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))]);
 }
 
 /***/ }),
@@ -19616,35 +19631,43 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "task-item"
 };
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_2 = {
   "class": "primary-info row"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-sm-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "checkbox",
   name: "",
   id: "",
   onChange: ""
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-sm-8"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Task name")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-sm-2 text-right action-column"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-ellipsis-h"
-})])], -1
+})], -1
 /* HOISTED */
 );
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_4 = {
+  "class": "col-sm-8"
+};
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col-sm-2 text-right action-column"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-ellipsis-h"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "second-info"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_4 = [_hoisted_2, _hoisted_3];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_4);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.item.todo_item), 1
+  /* TEXT */
+  )]), _hoisted_5]), _hoisted_6]);
 }
 
 /***/ }),
@@ -19703,15 +19726,14 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
- //export default function useBanks() {
+ //export default function useTasks() {
 
 var tasks = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)([]);
 var prefixe = 'api';
 
 var getTasks = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(datas) {
-    var _yield$axios$post, response;
-
+    var response;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -19721,23 +19743,22 @@ var getTasks = /*#__PURE__*/function () {
             return axios__WEBPACK_IMPORTED_MODULE_2___default().post(prefixe + '/task/index', datas);
 
           case 3:
-            _yield$axios$post = _context.sent;
-            response = _yield$axios$post.data;
+            response = _context.sent;
             tasks.value = response.data.body.tasks;
-            _context.next = 11;
+            _context.next = 10;
             break;
 
-          case 8:
-            _context.prev = 8;
+          case 7:
+            _context.prev = 7;
             _context.t0 = _context["catch"](0);
             console.log('error', _context.t0.message);
 
-          case 11:
+          case 10:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 8]]);
+    }, _callee, null, [[0, 7]]);
   }));
 
   return function getTasks(_x) {
@@ -19745,7 +19766,7 @@ var getTasks = /*#__PURE__*/function () {
   };
 }();
 
-var storeBank = /*#__PURE__*/function () {
+var storeTask = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(datas) {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
       while (1) {
@@ -19757,7 +19778,7 @@ var storeBank = /*#__PURE__*/function () {
 
           case 3:
             _context2.next = 5;
-            return getBanks();
+            return getTasks();
 
           case 5:
             _context2.next = 10;
@@ -19776,12 +19797,12 @@ var storeBank = /*#__PURE__*/function () {
     }, _callee2, null, [[0, 7]]);
   }));
 
-  return function storeBank(_x2) {
+  return function storeTask(_x2) {
     return _ref2.apply(this, arguments);
   };
 }();
 
-var updateBank = /*#__PURE__*/function () {
+var updateTask = /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(datas) {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
       while (1) {
@@ -19789,11 +19810,11 @@ var updateBank = /*#__PURE__*/function () {
           case 0:
             _context3.prev = 0;
             _context3.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(prefixe + '/bank/update', datas);
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(prefixe + '/task/update', datas);
 
           case 3:
             _context3.next = 5;
-            return getBanks();
+            return getTasks();
 
           case 5:
             _context3.next = 10;
@@ -19812,12 +19833,12 @@ var updateBank = /*#__PURE__*/function () {
     }, _callee3, null, [[0, 7]]);
   }));
 
-  return function updateBank(_x3) {
+  return function updateTask(_x3) {
     return _ref3.apply(this, arguments);
   };
 }();
 
-var deleteBank = /*#__PURE__*/function () {
+var deleteTask = /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(datas) {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
       while (1) {
@@ -19825,11 +19846,11 @@ var deleteBank = /*#__PURE__*/function () {
           case 0:
             _context4.prev = 0;
             _context4.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(prefixe + '/bank/delete', datas);
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(prefixe + '/task/delete', datas);
 
           case 3:
             _context4.next = 5;
-            return getBanks();
+            return getTasks();
 
           case 5:
             _context4.next = 10;
@@ -19848,14 +19869,14 @@ var deleteBank = /*#__PURE__*/function () {
     }, _callee4, null, [[0, 7]]);
   }));
 
-  return function deleteBank(_x4) {
+  return function deleteTask(_x4) {
     return _ref4.apply(this, arguments);
   };
 }();
 
-var searchBank = /*#__PURE__*/function () {
+var searchTask = /*#__PURE__*/function () {
   var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(datas) {
-    var _yield$axios$post2, response;
+    var _yield$axios$post, response;
 
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
       while (1) {
@@ -19863,11 +19884,11 @@ var searchBank = /*#__PURE__*/function () {
           case 0:
             _context5.prev = 0;
             _context5.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(prefixe + '/bank/show', datas);
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(prefixe + '/task/show', datas);
 
           case 3:
-            _yield$axios$post2 = _context5.sent;
-            response = _yield$axios$post2.data;
+            _yield$axios$post = _context5.sent;
+            response = _yield$axios$post.data;
             return _context5.abrupt("return", response);
 
           case 8:
@@ -19883,7 +19904,7 @@ var searchBank = /*#__PURE__*/function () {
     }, _callee5, null, [[0, 8]]);
   }));
 
-  return function searchBank(_x5) {
+  return function searchTask(_x5) {
     return _ref5.apply(this, arguments);
   };
 }();
@@ -19892,10 +19913,10 @@ getTasks();
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   tasks: tasks,
   getTasks: getTasks,
-  storeBank: storeBank,
-  searchBank: searchBank,
-  updateBank: updateBank,
-  deleteBank: deleteBank
+  storeTask: storeTask,
+  searchTask: searchTask,
+  updateTask: updateTask,
+  deleteTask: deleteTask
 });
 
 /***/ }),

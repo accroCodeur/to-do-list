@@ -11,12 +11,12 @@ class TaskController extends Controller
 {
     //Get a list of all task
     public function getAll(){
-        //try{
+        try{
             $tasks = Task::orderBy('created_at', 'DESC')->get();
-            return new JsonResponse(['success' => true, 'tasks' => $tasks], 200);
-        // }catch(Exception $e){
-        //      return new JsonResponse(['success' => false,'message' => 'error during processing'], 500);
-        // }
+            return new JsonResponse(['success' => true, 'body'=> ['tasks' => $tasks]], 200);
+        }catch(Exception $e){
+             return new JsonResponse(['success' => false,'message' => 'error during processing'], 500);
+        }
 
     }
 

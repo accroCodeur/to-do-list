@@ -1,7 +1,6 @@
 <template>
     <div class="task-list">
-        <b-form-datepicker v-model="value" locale="en"></b-form-datepicker>
-        <TaskItem/>
+        <TaskItem v-for="item in tasks" :key="item.id" :item="item"/>
     </div>
 </template>
 
@@ -25,9 +24,15 @@
 
             console.log(dayjs('2022-01-02'))
 
+            console.log(tasks.value)
+
             onMounted(() => {
 
             })
+
+            return {
+                tasks, getTasks
+            }
         }
     }
 

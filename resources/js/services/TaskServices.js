@@ -1,50 +1,50 @@
 import { ref } from "vue";
 import axios from "axios";
 
-//export default function useBanks() {
+//export default function useTasks() {
 const tasks = ref([]);
 const prefixe = 'api';
 
 const getTasks = async(datas) => {
     try {
-        let { data: response } = await axios.post(prefixe + '/task/index', datas);
+        let response = await axios.post(prefixe + '/task/index', datas);
         tasks.value = response.data.body.tasks
     } catch (e) {
         console.log('error', e.message)
     }
 }
 
-const storeBank = async(datas) => {
+const storeTask = async(datas) => {
     try {
         await axios.post(prefixe + '/tasks/store', datas)
-        await getBanks()
+        await getTasks()
     } catch (e) {
         console.log('error, e.message')
     }
 }
 
 
-const updateBank = async(datas) => {
+const updateTask = async(datas) => {
     try {
-        await axios.post(prefixe + '/bank/update', datas)
-        await getBanks()
+        await axios.post(prefixe + '/task/update', datas)
+        await getTasks()
     } catch (e) {
         console.log('error, e.message')
     }
 }
 
-const deleteBank = async(datas) => {
+const deleteTask = async(datas) => {
     try {
-        await axios.post(prefixe + '/bank/delete', datas)
-        await getBanks()
+        await axios.post(prefixe + '/task/delete', datas)
+        await getTasks()
     } catch (e) {
         console.log('error, e.message')
     }
 }
 
-const searchBank = async(datas) => {
+const searchTask = async(datas) => {
     try {
-        let { data: response } = await axios.post(prefixe + '/bank/show', datas)
+        let { data: response } = await axios.post(prefixe + '/task/show', datas)
         return response;
     } catch (e) {
         console.log('error, e.message')
@@ -57,8 +57,8 @@ getTasks();
 export default {
     tasks,
     getTasks,
-    storeBank,
-    searchBank,
-    updateBank,
-    deleteBank
+    storeTask,
+    searchTask,
+    updateTask,
+    deleteTask
 }
