@@ -11,6 +11,7 @@
     import { inject, ref } from 'vue'
     import { onMounted, onUpdated, onUnmounted } from 'vue'
 
+
     import dayjs from 'dayjs'
 
 
@@ -19,7 +20,7 @@
         components: { TaskItem},
 
         setup(){
-            
+            const { tasks, getTasks} = inject("useTasks");
             let value = ref(null)
 
             console.log(dayjs('2022-01-02'))
