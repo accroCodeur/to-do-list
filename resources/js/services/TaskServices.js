@@ -23,6 +23,15 @@ const storeTask = async(datas) => {
     }
 }
 
+const setStateTask = async(datas) => {
+    try {
+        await axios.post(prefixe + '/tasks/set-state', datas)
+        await getTasks()
+    } catch (e) {
+        console.log('error, e.message')
+    }
+}
+
 
 const updateTask = async(datas) => {
     try {
@@ -60,5 +69,6 @@ export default {
     storeTask,
     searchTask,
     updateTask,
-    deleteTask
+    deleteTask,
+    setStateTask
 }

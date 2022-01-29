@@ -13,4 +13,8 @@ class Task extends Model
     use SoftDeletes;
 
     protected $fillable = ['todo_item', 'due_date', 'status'];
+
+    protected $attributes = [
+        'status' => 0
+    ];
 }

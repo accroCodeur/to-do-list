@@ -19333,19 +19333,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_Datepicker_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/Datepicker.vue */ "./resources/js/components/Datepicker.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _components_Datepicker_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Datepicker.vue */ "./resources/js/components/Datepicker.vue");
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    DatePicker: _components_Datepicker_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    DatePicker: _components_Datepicker_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   setup: function setup() {
+    var _inject = (0,vue__WEBPACK_IMPORTED_MODULE_2__.inject)("useTasks"),
+        tasks = _inject.tasks,
+        storeTask = _inject.storeTask;
+
+    var loading = (0,vue__WEBPACK_IMPORTED_MODULE_2__.ref)(false);
+    var form = (0,vue__WEBPACK_IMPORTED_MODULE_2__.reactive)({
+      wording: null,
+      due_date: null
+    });
+
     var dateChange = function dateChange(value) {
-      console.log('change', value);
+      form.due_date = dayjs__WEBPACK_IMPORTED_MODULE_1___default()(value.date).format('DD/MM/YYYY HH:MM:ss');
     };
 
+    var sendTask = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                loading.value = true;
+                console.log(loading.value);
+                _context.next = 4;
+                return storeTask(_objectSpread({}, form));
+
+              case 4:
+                loading.value = false;
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function sendTask() {
+        return _ref.apply(this, arguments);
+      };
+    }();
+
     return {
-      dateChange: dateChange
+      dateChange: dateChange,
+      form: form,
+      sendTask: sendTask,
+      loading: loading
     };
   }
 });
@@ -19420,7 +19479,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_2__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -19431,8 +19501,41 @@ __webpack_require__.r(__webpack_exports__);
   },
   setup: function setup(props) {
     var item = props.item;
+
+    var _inject = (0,vue__WEBPACK_IMPORTED_MODULE_1__.inject)("useTasks"),
+        tasks = _inject.tasks,
+        setStateTask = _inject.setStateTask;
+
+    var check = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(false);
+
+    var setState = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(item) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return setStateTask({
+                  id: item.id
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function setState(_x) {
+        return _ref.apply(this, arguments);
+      };
+    }();
+
     return {
-      item: item
+      item: item,
+      dayjs: (dayjs__WEBPACK_IMPORTED_MODULE_2___default()),
+      setState: setState
     };
   }
 });
@@ -19515,28 +19618,56 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "row"
 };
+var _hoisted_3 = {
+  "class": "col-sm-5"
+};
+var _hoisted_4 = {
+  "class": "col-sm-5"
+};
+var _hoisted_5 = {
+  "class": "col-sm-2 send-container"
+};
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-sm-6"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "text",
-  placeholder: "Enter a task",
-  "class": "task-input"
-})], -1
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-paper-plane"
+}, null, -1
 /* HOISTED */
 );
 
-var _hoisted_4 = {
-  "class": "col-sm-6"
+var _hoisted_7 = [_hoisted_6];
+var _hoisted_8 = {
+  key: 1
 };
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-spinner"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_10 = [_hoisted_9];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_date_picker = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("date-picker");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_date_picker, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    placeholder: "Enter a task",
+    "class": "task-input",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $setup.form.wording = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.wording]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_date_picker, {
     dateChange: $setup.dateChange
   }, null, 8
   /* PROPS */
-  , ["dateChange"])])])]);
+  , ["dateChange"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [$setup.loading == false ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
+    key: 0,
+    onClick: _cache[1] || (_cache[1] = function () {
+      return $setup.sendTask && $setup.sendTask.apply($setup, arguments);
+    })
+  }, _hoisted_7)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_8, _hoisted_10))])])]);
 }
 
 /***/ }),
@@ -19634,23 +19765,15 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "primary-info row"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-sm-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "checkbox",
-  name: "",
-  id: "",
-  onChange: ""
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_4 = {
-  "class": "col-sm-8"
+var _hoisted_3 = {
+  "class": "col-sm-1"
+};
+var _hoisted_4 = ["checked"];
+var _hoisted_5 = {
+  "class": "col-sm-9"
 };
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-sm-2 text-right action-column"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fas fa-ellipsis-h"
@@ -19658,16 +19781,23 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_7 = {
   "class": "second-info"
-}, null, -1
-/* HOISTED */
-);
-
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.item.todo_item), 1
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "checkbox",
+    checked: $setup.item.status == 1,
+    onChange: _cache[0] || (_cache[0] = function ($event) {
+      return $setup.setState($setup.item);
+    })
+  }, null, 40
+  /* PROPS, HYDRATE_EVENTS */
+  , _hoisted_4)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.item.todo_item), 1
   /* TEXT */
-  )]), _hoisted_5]), _hoisted_6]);
+  )]), _hoisted_6]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.dayjs($setup.item.due_date).format('MM/DD/YYYY HH:MM:ss')), 1
+  /* TEXT */
+  )]);
 }
 
 /***/ }),
@@ -19802,7 +19932,7 @@ var storeTask = /*#__PURE__*/function () {
   };
 }();
 
-var updateTask = /*#__PURE__*/function () {
+var setStateTask = /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(datas) {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
       while (1) {
@@ -19810,7 +19940,7 @@ var updateTask = /*#__PURE__*/function () {
           case 0:
             _context3.prev = 0;
             _context3.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(prefixe + '/task/update', datas);
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(prefixe + '/tasks/set-state', datas);
 
           case 3:
             _context3.next = 5;
@@ -19833,12 +19963,12 @@ var updateTask = /*#__PURE__*/function () {
     }, _callee3, null, [[0, 7]]);
   }));
 
-  return function updateTask(_x3) {
+  return function setStateTask(_x3) {
     return _ref3.apply(this, arguments);
   };
 }();
 
-var deleteTask = /*#__PURE__*/function () {
+var updateTask = /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(datas) {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
       while (1) {
@@ -19846,7 +19976,7 @@ var deleteTask = /*#__PURE__*/function () {
           case 0:
             _context4.prev = 0;
             _context4.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(prefixe + '/task/delete', datas);
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(prefixe + '/task/update', datas);
 
           case 3:
             _context4.next = 5;
@@ -19869,43 +19999,79 @@ var deleteTask = /*#__PURE__*/function () {
     }, _callee4, null, [[0, 7]]);
   }));
 
-  return function deleteTask(_x4) {
+  return function updateTask(_x4) {
     return _ref4.apply(this, arguments);
   };
 }();
 
-var searchTask = /*#__PURE__*/function () {
+var deleteTask = /*#__PURE__*/function () {
   var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5(datas) {
-    var _yield$axios$post, response;
-
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
       while (1) {
         switch (_context5.prev = _context5.next) {
           case 0:
             _context5.prev = 0;
             _context5.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(prefixe + '/task/show', datas);
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(prefixe + '/task/delete', datas);
 
           case 3:
-            _yield$axios$post = _context5.sent;
-            response = _yield$axios$post.data;
-            return _context5.abrupt("return", response);
+            _context5.next = 5;
+            return getTasks();
 
-          case 8:
-            _context5.prev = 8;
+          case 5:
+            _context5.next = 10;
+            break;
+
+          case 7:
+            _context5.prev = 7;
             _context5.t0 = _context5["catch"](0);
             console.log('error, e.message');
 
-          case 11:
+          case 10:
           case "end":
             return _context5.stop();
         }
       }
-    }, _callee5, null, [[0, 8]]);
+    }, _callee5, null, [[0, 7]]);
   }));
 
-  return function searchTask(_x5) {
+  return function deleteTask(_x5) {
     return _ref5.apply(this, arguments);
+  };
+}();
+
+var searchTask = /*#__PURE__*/function () {
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(datas) {
+    var _yield$axios$post, response;
+
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            _context6.prev = 0;
+            _context6.next = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_2___default().post(prefixe + '/task/show', datas);
+
+          case 3:
+            _yield$axios$post = _context6.sent;
+            response = _yield$axios$post.data;
+            return _context6.abrupt("return", response);
+
+          case 8:
+            _context6.prev = 8;
+            _context6.t0 = _context6["catch"](0);
+            console.log('error, e.message');
+
+          case 11:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6, null, [[0, 8]]);
+  }));
+
+  return function searchTask(_x6) {
+    return _ref6.apply(this, arguments);
   };
 }();
 
@@ -19916,7 +20082,8 @@ getTasks();
   storeTask: storeTask,
   searchTask: searchTask,
   updateTask: updateTask,
-  deleteTask: deleteTask
+  deleteTask: deleteTask,
+  setStateTask: setStateTask
 });
 
 /***/ }),
@@ -19938,7 +20105,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  background-color: #f2f2f2ba;\n}\n\nbody .task-container {\n  width: 400px;\n  background-color: #3c424a;\n  margin: auto;\n  position: fixed;\n  top: 10%;\n  left: 36%;\n  color: #FFF;\n  padding: 10px;\n  border-radius: 4px;\n  min-height: 500px;\n  box-shadow: 8px 3px 8px 5px #b0b0b0;\n}\n\ntext-right {\n  text-align: right;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  background-color: #f2f2f2ba;\n}\n\nbody .task-container {\n  width: 450px;\n  background-color: #3c424a;\n  margin: auto;\n  position: fixed;\n  top: 10%;\n  left: 36%;\n  color: #FFF;\n  padding: 10px;\n  border-radius: 4px;\n  min-height: 500px;\n  box-shadow: 8px 3px 8px 5px #b0b0b0;\n}\n\ntext-right {\n  text-align: right;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19962,7 +20129,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".task-input {\n  width: 100%;\n  height: 36px;\n  background-color: #343a40;\n  color: #FFF;\n  font-weight: bold;\n  font-size: 15px;\n  padding: 2px 12px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".task-input {\n  width: 100%;\n  height: 36px;\n  background-color: #343a40;\n  color: #FFF;\n  font-weight: bold;\n  font-size: 15px;\n  padding: 2px 12px;\n}\n.send-container {\n  text-align: center;\n  color: #a8aeae;\n  font-size: 25px;\n}\n.send-container span {\n  cursor: pointer;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
