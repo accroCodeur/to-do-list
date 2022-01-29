@@ -1,13 +1,22 @@
 <template>
-        <span>Test</span>
+    <div class="task-container">
+        <Header/>
+        <TaskForm/>
+        <TaskList/>
+    </div>
 </template>
 
+
 <script>
+    import Header from './components/Header'
+    import TaskForm from './components/Form'
+    import TaskList from './components/List'
 
-    export default ({
-        setup() {
+    export default {
+        name: 'TaskManager',
+        components:{
+            Header, TaskForm, TaskList
+        }
+    }
 
-        },
-    })
 </script>
-

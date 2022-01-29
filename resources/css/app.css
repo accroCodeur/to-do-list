@@ -1,0 +1,21 @@
+body {
+    background-color: #f2f2f2ba;
+}
+
+body .task-container {
+    width: 400px;
+    background-color: #3c424a;
+    margin: auto;
+    position: fixed;
+    top: 10%;
+    left: 36%;
+    color: #FFF;
+    padding: 10px;
+    border-radius: 4px;
+    min-height: 500px;
+    box-shadow: 8px 3px 8px 5px #b0b0b0;
+}
+
+.text-right {
+    text-align: right;
+}

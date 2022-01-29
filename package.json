@@ -13,10 +13,14 @@
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
+        "node-sass": "^7.0.1",
         "postcss": "^8.1.14",
+        "sass-loader": "^12.4.0",
         "vue-loader": "^17.0.0"
     },
     "dependencies": {
-        "vue": "^3.2.29"
+        "dayjs": "^1.10.7",
+        "vue": "^3.2.29",
+        "vue3-date-time-picker": "^2.4.4"
     }
 }
